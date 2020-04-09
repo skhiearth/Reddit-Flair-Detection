@@ -16,15 +16,14 @@ subreddit = reddit.subreddit('india')
 top_subreddit = subreddit.top(limit=1000)
 
 # Parsing and Downloading the data
-topics_dict = {"title":[], "score":[], "id":[], "url": [], "body":[], "flair":[]}
+topics_dict = {"title":[], "id":[], "url": [], "body":[], "flair":[]}
 
 for submission in top_subreddit:
-    topics_dict["title"].append(submission.title)
-    topics_dict["score"].append(submission.score)
     topics_dict["id"].append(submission.id)
-    topics_dict["url"].append(submission.url)
+    topics_dict["title"].append(submission.title)
     topics_dict["body"].append(submission.selftext)
     topics_dict["flair"].append(submission.link_flair_text)
+    topics_dict["url"].append(submission.url)
 
 topics_data = pd.DataFrame(topics_dict)
 topics_data.to_csv('RedditData/Data/raw.csv', index=False) 
