@@ -8,3 +8,7 @@
 2. Creating the Python script which will be used to parse data. [SUCCESS]
     2.1. Getting Reddit and Subreddit instances. [SUCCESS]
     2.2. Parsing and Downloading the data [SUCCESS]
+
+## Stage 2: Exploratory Data Analysis
+
+1. Create a Jupyter Notebook for EDA [SUCCESS]
