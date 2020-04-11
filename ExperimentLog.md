@@ -18,3 +18,5 @@
 2. Removing the `r/` tag from the flairs.
     2.1. Using a higher order function approach. [FAILURE]
     2.2. Using `.replace()` to replace a certain predefined list of bad-characters with empty string. [SUCCESS]
+3. Splitting the dataset into training and test. [SUCCESS]
+4. TFIDF Vectorization [SUCCESS]
