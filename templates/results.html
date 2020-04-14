@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Automated Reddit Flair Classification using Machine Learning</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body style="background-color:rgb(218, 225, 230)">
+
+	<nav class="navbar navbar-light" style="background-color: rgb(255, 67, 1);">
+		<span class="navbar-brand mb-0 h2">
+			<p style="font-size:15px; text-align: center; color: seashell;">
+				Automated Reddit Flair Classification using Machine Learning
+			</p>
+		</span>
+	</nav>
+
+	<div class="ml-container" style="background-color:whitesmoke; border: 1px solid rgb(10, 10, 10); 
+	border-radius: 15px; margin: 25px; padding-top: 15px;">
+		<p style="margin-left: 55px; font-size: 20px; color: whitesmoke;">The SMS was: "{{ comment }}"</p>
+    		<div class="results">
+
+			{% if prediction == 'spam'%}
+			<h2 style="color:red; font-size: 22px; text-align: center;">Spam</h2>
+			{% elif prediction == 'ham'%}
+			<h2 style="color:blue; font-size: 22px; text-align: center;">Not Spam</h2>
+			{% endif %}
+
+		</div>
+	</div>
+
+	<span>
+		<p style="font-size:15px; text-align: center; color: rgb(43, 92, 94);">
+			Made with <span style="color: #e25555;">&#9829;</span> in India by <a style="color: rgb(43, 92, 94);" href="https://www.skhiearth.tech/">skhiearth</a>
+		</p>
+	</span>
+	
+</body>
+</html>

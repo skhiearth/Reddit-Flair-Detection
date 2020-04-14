@@ -10,7 +10,6 @@
 ## Stage 2: Exploratory Data Analysis
 
 1. Create a Jupyter Notebook for EDA [SUCCESS]
-2. A
 
 ## Stage 3: Flair Detection
 
@@ -20,3 +19,8 @@
     2.2. Using `.replace()` to replace a certain predefined list of bad-characters with empty string. [SUCCESS]
 3. Splitting the dataset into training and test. [SUCCESS]
 4. TFIDF Vectorization [SUCCESS]
+
+## Stage 4: Web Application
+
+1. Load Flask app template. [SUCCESS]
+2. Render basic HTML elements. [SUCCESS]

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Automated Reddit Flair Classification using Machine Learning</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body style="background-color:rgb(218, 225, 230)">
+
+	<nav class="navbar navbar-light" style="background-color: rgb(255, 67, 1);">
+		<span class="navbar-brand mb-0 h2">
+			<p style="font-size:15px; text-align: center; color: seashell;">
+				Automated Reddit Flair Classification using Machine Learning
+			</p>
+		</span>
+	</nav>
+
+	<div class="ml-container" style="background-color:whitesmoke; border: 1px solid rgb(10, 10, 10); 
+	border-radius: 12px; margin: 25px; padding-top: 15px; text-align:center">
+
+		<form style="text-align:center" id="myform" action="{{ url_for('predict')}}" method="POST">
+		<p style="font-size:18px; text-align: center; color: black">Upload text file with links to Reddit posts (one in each line):</p>
+		<input type="file" id="myFile" name="filename">
+		<br/>
+
+		<input style="margin: auto; margin-top: 12px; margin-bottom: 12px; border-radius: 10px; 
+		background-color:DodgerBlue; color: black; padding: 15px 32px; text-align: center; display: block; 
+		font-size: 13px;" type="submit" class="btn-info" value="Predict">
+		</form>
+
+	</div>
+
+	<div class="ml-container" style="background-color:whitesmoke; border: 1px solid rgb(10, 10, 10); 
+	border-radius: 12px; margin: 25px; padding-top: 15px;">
+
+		<form id="myform" action="{{ url_for('predict')}}" method="POST">
+		<p style="font-size:18px; text-align: center; color: black">Enter Reddit post URL here:</p>
+		<textarea style="height:50px; width:90%; margin-left: 55px;" name="comment" rows="4" cols="50"></textarea>
+		<br/>
+
+		<input style="margin: auto; margin-top: 12px; margin-bottom: 12px; border-radius: 10px; 
+		background-color:DodgerBlue; color: black; padding: 15px 32px; text-align: center; display: block; 
+		font-size: 13px;" type="submit" class="btn-info" value="Predict">
+		</form>
+
+	</div>
+
+	<div class="ml-container" style="background-color:whitesmoke; border: 1px solid rgb(10, 10, 10); 
+	border-radius: 12px; margin: 25px; padding-top: 15px;">
+
+		<form id="myform" action="{{ url_for('predict')}}" method="POST">
+		<p style="font-size:18px; text-align: center; color: black">Enter Reddit post title and body here:</p>
+		<textarea style="height:50px; width:90%; margin-left: 55px;" name="comment" rows="4" cols="50"></textarea>
+		<br/>
+
+		<input style="margin: auto; margin-top: 12px; margin-bottom: 12px; border-radius: 10px; 
+		background-color:DodgerBlue; color: black; padding: 15px 32px; text-align: center; display: block; 
+		font-size: 13px;" type="submit" class="btn-info" value="Predict">
+		</form>
+
+	</div>
+
+	<span>
+		<p style="font-size:15px; text-align: center; color: rgb(43, 92, 94);">
+			Made with <span style="color: #e25555;">&#9829;</span> in India by <a style="color: rgb(43, 92, 94);" href="https://www.skhiearth.tech/">skhiearth</a>
+		</p>
+	</span>
+
+</body>
+</html>
