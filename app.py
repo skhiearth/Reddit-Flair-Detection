@@ -9,7 +9,6 @@ from keras.preprocessing.text import Tokenizer
 from keras.preprocessing.sequence import pad_sequences
 import tensorflow as tf
 import json
-from account import id, secret, appName, username
 import praw # Python Reddit API Wrapper
 import pandas as pd 
 import datetime as dt
@@ -30,6 +29,11 @@ def automated():
 
     def remove_prefix(text, prefix):
         return text[text.startswith(prefix) and len(prefix):]
+
+    id = "_zZVrgo-Rbu5TA"
+    secret = "rPt0ZY2LYlS8pYx1IHwl1GKQDsw"
+    appName = "flare-detection"
+    username = "skhiearth"
 
     reddit = praw.Reddit(client_id=id, \
                             client_secret=secret, \
