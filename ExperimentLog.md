@@ -37,8 +37,12 @@
 
 1. Load Flask app template. [SUCCESS]
 2. Render basic HTML elements. [SUCCESS]
+3. Predict flair from taking Reddit title + body from user. [SUCCESS - Trial for working of the model]
+4. Predict flair from taking Reddit URL from user. [SUCCESS - Trial for working of the PRAW instance]
+5. Predict flair from a text file containing URLs of multiple reddit posts. [SUCCESS]
+6. Add instructions on web app usage to the landing page. [SUCCESS]
 
 ## Stage 5: Future Work
 
-1. Use Feature Enginerring to improve classification accuracy [POSSIBLE FEATURE: Length of title, number of puncutations, direct occurences of certain words in the title (like Corona -> Coronavirus), etc. Unable to implement feature engineering due to time and computing constraints.]
+1. Use Feature Enginerring to improve classification accuracy [POSSIBLE FEATURE: Length of title, number of puncutations, direct occurences of certain words in the title (like Corona -> Coronavirus), etc. Unable to implement feature engineering due to computing constraints and time (Each epoch of Neural Network takes approximately 40 minutes to run)]
 2. Build a more elegant UI/UX for the web application. [Unable to implement a more elegant UX due to lack of knowledge and practice in this domain.]

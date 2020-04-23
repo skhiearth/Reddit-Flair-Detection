@@ -19,25 +19,11 @@
 	</nav>
 
 	<div class="ml-container" style="background-color:whitesmoke; border: 1px solid rgb(10, 10, 10); 
-	border-radius: 12px; margin: 25px; padding-top: 15px; text-align:center">
-
-		<form style="text-align:center" id="myform" action="{{ url_for('predict')}}" method="POST">
-		<p style="font-size:18px; text-align: center; color: black">Upload text file with links to Reddit posts (one in each line):</p>
-		<input type="file" id="myFile" name="filename">
-		<br/>
-
-		<input style="margin: auto; margin-top: 12px; margin-bottom: 12px; border-radius: 10px; 
-		background-color:DodgerBlue; color: black; padding: 15px 32px; text-align: center; display: block; 
-		font-size: 13px;" type="submit" class="btn-info" value="Predict">
-		</form>
-
-	</div>
-
-	<div class="ml-container" style="background-color:whitesmoke; border: 1px solid rgb(10, 10, 10); 
 	border-radius: 12px; margin: 25px; padding-top: 15px;">
 
 		<form id="myform" action="{{ url_for('predict')}}" method="POST">
 		<p style="font-size:18px; text-align: center; color: black">Enter Reddit post URL here:</p>
+		<p style="font-size:10px; text-align: center; color: black">Example: https://www.reddit.com/r/india/comments/ddziqc/spend_nearly_500_rs_bucks_to_watch_joker_and_in/</p>
 		<textarea style="height:50px; width:90%; margin-left: 55px;" name="comment" rows="4" cols="50"></textarea>
 		<br/>
 
@@ -47,6 +33,29 @@
 		</form>
 
 	</div>
+
+	<div class="ml-container" style="margin: 25px; padding-top: 15px;">
+
+		<form id="myform" action="{{ url_for('predict')}}" method="POST">
+		<p style="font-size:16px; text-align: center; color: rgb(32, 32, 32)">How it works?</p>
+		<p style="font-size:14px; text-align: center; color: rgb(32, 32, 32)">In this pipeline,
+		a Long Short Term Memory network – usually just called “LSTMs” – a special kind of RNN is used
+		to try and predict the flair of a Reddit post from the <span style="color: rgb(255, 67, 1);">r/india </span>subreddit. 
+		Reddit flair classification is a difficult task because of the wide variety and open nature of the 
+		platform. For prediction, please enter the complete URL of a Reddit post.</p>
+		<p style="font-size:14px; text-align: center; color: rgb(32, 32, 32)">Advance users can use the 
+		automated endpoint in this web application: <span style="color: blueviolet">automated_testing</span> to
+		predict the flair of multiple posts collectively. You can pass a .txt file to the endpoint with the URL of
+		each post in a line and the application returns a JSON object with the predictions for each post.</p>
+		</form>
+
+	</div>
+
+	<span>
+		<p style="font-size:12px; text-align: center; color: rgb(43, 92, 94);">
+			Source code: <a style="color: black" href="https://github.com/skhiearth/Reddit-Flair-Detection">GitHub</a>
+		</p>
+	</span>
 
 	<span>
 		<p style="font-size:15px; text-align: center; color: rgb(43, 92, 94);">
