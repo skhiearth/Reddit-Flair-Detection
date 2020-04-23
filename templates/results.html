@@ -19,20 +19,20 @@
 	</nav>
 
 	<div class="ml-container" style="background-color:whitesmoke; border: 1px solid rgb(10, 10, 10); 
-	border-radius: 15px; margin: 25px; padding-top: 15px;">
-		<p style="margin-left: 55px; font-size: 20px; color: whitesmoke;">The post was: "{{ comment }}"</p>
+	border-radius: 15px; margin: 25px; padding: 10px;">
     		<div class="results">
-
+			<h2 style="color:black; font-size: 16px; text-align: center;">The post content was: "{{ comment }}"</p>
+			<h2 style="color:black; font-size: 16px; text-align: center;">Predicted flair is: </h2>
 			{% if prediction == [0]%}
-			<h2 style="color:red; font-size: 22px; text-align: center;">AskIndia</h2>
+			<h2 style="color:red; font-size: 26px; text-align: center;">AskIndia</h2>
 			{% elif prediction == [1]%}
-			<h2 style="color:blue; font-size: 22px; text-align: center;">BusinessFinance</h2>
+			<h2 style="color:blue; font-size: 26px; text-align: center;">BusinessFinance</h2>
 			{% elif prediction == [2]%}
-			<h2 style="color:red; font-size: 22px; text-align: center;">NonPolitical</h2>
+			<h2 style="color:teal; font-size: 26px; text-align: center;">NonPolitical</h2>
 			{% elif prediction == [3]%}
-			<h2 style="color:blue; font-size: 22px; text-align: center;">PolicyEconomy</h2>
+			<h2 style="color:orange; font-size: 26px; text-align: center;">PolicyEconomy</h2>
 			{% elif prediction == [4]%}
-			<h2 style="color:blue; font-size: 22px; text-align: center;">Politics</h2>
+			<h2 style="color:green; font-size: 26px; text-align: center;">Politics</h2>
 			{% endif %}
 
 		</div>

@@ -9,6 +9,11 @@ from keras.preprocessing.text import Tokenizer
 from keras.preprocessing.sequence import pad_sequences
 import tensorflow as tf
 
+from account import id, secret, appName, username
+import praw # Python Reddit API Wrapper
+import pandas as pd 
+import datetime as dt
+
 app = Flask(__name__)
 
 @app.route("/")
@@ -25,14 +30,27 @@ def predict():
 
     if request.method == 'POST':
         comment = request.form['comment']
-        data = [comment]
+
+        # Reddit and subreddit instances
+        reddit = praw.Reddit(client_id=id, \
+                            client_secret=secret, \
+                            user_agent=appName, \
+                            username=username)
+
+        submission = reddit.submission(id='g6gz0e')
+        title = submission.title
+        body = submission.selftext
+
+        text_to_classify = title + body
+
+        data = [text_to_classify]
         vect = tokenizer.texts_to_sequences(data)
         vect = pad_sequences(vect, maxlen=250)
         
         my_prediction = model.predict(vect)
         my_prediction = np.argmax(my_prediction, axis=1)
         print(my_prediction)
-    return render_template("results.html", prediction=my_prediction, comment=comment)
+    return render_template("results.html", prediction=my_prediction, comment=text_to_classify)
 
 if __name__ == '__main__':
     app.run(debug=True)
