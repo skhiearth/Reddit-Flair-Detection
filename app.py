@@ -5,7 +5,6 @@ import numpy as np
 import pickle
 import string
 import re
-import nltk
 from keras.preprocessing.text import Tokenizer
 from keras.preprocessing.sequence import pad_sequences
 import tensorflow as tf
