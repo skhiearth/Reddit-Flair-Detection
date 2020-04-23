@@ -48,7 +48,7 @@ def automated():
         full_filename = os.path.join(app.config['UPLOAD_FOLDER'], 'file.txt')
 
         with open(full_filename, 'r') as fp:
-            for cnt, line in enumerate(fp):
+            for _, line in enumerate(fp):
                 url = line
 
                 line = remove_prefix(line, 'https://www.reddit.com/r/india/comments/')
