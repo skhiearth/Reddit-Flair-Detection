@@ -7,7 +7,8 @@ import time
 import datetime
 
 def getPushshiftData(query, after, before, sub):
-    url = 'https://api.pushshift.io/reddit/search/submission/?title='+str(query)+'&size=1000&after='+str(after)+'&before='+str(before)+'&subreddit='+str(sub)+'&score=>1'
+    #url = 'https://api.pushshift.io/reddit/search/submission/?title='+str(query)+'&size=1000&after='+str(after)+'&before='+str(before)+'&subreddit='+str(sub)+'&score=>1'
+    url = 'https://api.pushshift.io/reddit/search/submission/?title='+str(query)+'&size=1000&after='+str(after)+'&before='+str(before)+'&subreddit='+str(sub)
     print(url)
     r = requests.get(url)
     data = json.loads(r.text)
@@ -42,7 +43,8 @@ before = "1585699200" #April 1st 2020
 #after = "1577836800" #January 1st 2020
 #after = "1546300800"  #January 1st 2019
 #after = "1538352000" # October 1st 2018
-after = "1514764800" # January 1st 2018
+#after = "1514764800" # January 1st 2018
+after = "1451606400" # January 1st 2016
 query = ""
 subCount = 0
 subStats = {}
@@ -70,7 +72,7 @@ print(list(subStats.values())[-1][0][1] + " created: " + str(list(subStats.value
 
 def updateSubs_file():
     upload_count = 0
-    file = "RedditData/Data/RedditLarge3.csv"
+    file = "RedditData/Data/RedditLarge2016NoFilters.csv"
     with open(file, 'w', newline='', encoding='utf-8') as file: 
         a = csv.writer(file, delimiter=',')
         headers = ["Post ID","Title","Url","Author","Score","Publish Date","Total No. of Comments","Permalink","Flair","Body"]
@@ -82,6 +84,3 @@ def updateSubs_file():
         print(str(upload_count) + " submissions have been uploaded")
 
 updateSubs_file()
-
-#85629
-#97322

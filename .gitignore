@@ -1,3 +1,12 @@
 
 .DS_Store
 RedditData/account.py
+account.py
+RedditData/Data/RedditLarge2016NoFilters.csv
+RedditData/Data/balanced3.csv
+RedditData/Data/balanced.csv
+RedditData/Data/balanced.csv
+RedditData/Data/balanced.csv
+RedditData/Data/balanced.csv
+*.csv
+RedditData/Data/balanced.csv
