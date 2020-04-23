@@ -30,15 +30,11 @@ def automated():
     def remove_prefix(text, prefix):
         return text[text.startswith(prefix) and len(prefix):]
 
-    id = "_zZVrgo-Rbu5TA"
-    secret = "rPt0ZY2LYlS8pYx1IHwl1GKQDsw"
-    appName = "flare-detection"
-    username = "skhiearth"
-
-    reddit = praw.Reddit(client_id=id, \
-                            client_secret=secret, \
-                            user_agent=appName, \
-                            username=username)
+    # Reddit and subreddit instances
+    reddit = praw.Reddit(client_id="_zZVrgo-Rbu5TA", \
+                        client_secret="rPt0ZY2LYlS8pYx1IHwl1GKQDsw", \
+                        user_agent="flare-detection", \
+                        username="skhiearth")
 
     with open('Models/LSTMTokenizer.pickle', 'rb') as handle:
         tokenizer = pickle.load(handle)
@@ -108,10 +104,10 @@ def predict():
         comment = comment.split('/', 1)[0]
 
         # Reddit and subreddit instances
-        reddit = praw.Reddit(client_id=id, \
-                            client_secret=secret, \
-                            user_agent=appName, \
-                            username=username)
+        reddit = praw.Reddit(client_id="_zZVrgo-Rbu5TA", \
+                            client_secret="rPt0ZY2LYlS8pYx1IHwl1GKQDsw", \
+                            user_agent="flare-detection", \
+                            username="skhiearth")
 
         submission = reddit.submission(id=comment)
         title = submission.title
