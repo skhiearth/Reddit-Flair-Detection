@@ -7,5 +7,4 @@ scikit-learn
 sklearn
 keras
 tensorflow
-nltk
 praw
