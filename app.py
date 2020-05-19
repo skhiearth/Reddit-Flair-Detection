@@ -24,7 +24,7 @@ preds = {}
 def index():
     return render_template("index.html")
 
-@app.route("/automated_testing", methods=['POST'])  
+@app.route('/predict', methods=['POST'])
 def automated():
 
     def remove_prefix(text, prefix):
@@ -65,29 +65,34 @@ def automated():
                 vect = pad_sequences(vect, maxlen=250)
 
                 my_prediction = model.predict(vect)
-                my_prediction = np.argmax(my_prediction, axis=1)
 
-                if(my_prediction == [0]):
-                    my_prediction = 'AskIndia'
-                elif(my_prediction == [1]):
-                    my_prediction = 'BusinessFinance'
-                elif(my_prediction == [2]):
-                    my_prediction = 'NonPolitical'
-                elif(my_prediction == [3]):
-                    my_prediction = 'PolicyEconomy'
-                elif(my_prediction == [4]):
-                    my_prediction = 'Politics'
-                else:
-                    my_prediction = 'Error'
+        return my_prediction
 
-                preds[url] = my_prediction
 
-        return_json = json.dumps(preds)
-        return return_json
+@app.route("/resultText", methods=['POST'])  
+def resultText():
 
+    with open('Models/LSTMTokenizer.pickle', 'rb') as handle:
+        tokenizer = pickle.load(handle)
+
+    model = tf.keras.models.load_model('Models/LSTM.h5')
+
+    if request.method == 'POST':
+        comment = request.form['commentText']
+
+        text_to_classify = comment
+
+        data = [text_to_classify]
+        vect = tokenizer.texts_to_sequences(data)
+        vect = pad_sequences(vect, maxlen=250)
+        
+        my_prediction = model.predict(vect)
+        my_prediction = np.argmax(my_prediction, axis=1)
+        print(my_prediction)
+    return render_template("resultText.html", prediction=my_prediction, comment=text_to_classify)
 
 @app.route("/result", methods=['POST'])  
-def predict():
+def result():
 
     with open('Models/LSTMTokenizer.pickle', 'rb') as handle:
         tokenizer = pickle.load(handle)
